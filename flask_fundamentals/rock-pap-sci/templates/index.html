@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Rock, Paper, Scissors</title>
+  </head>
+  <body>
+    <header>
+      <p>Wins: {{ wins }}</p>
+      <p>Losses: {{ losses }}</p>
+      <p>Ties: {{ ties }}</p>
+    </header>
+    <main>
+      <h1>Rock Paper Scissors</h1>
+      <p></p>
+      <form action="/process_play" method="POST">
+	<input name="play" type="button" value="rock"/>
+	<input name="play" type="button" value="paper"/>
+	<input name="play" type="button" value="scissors"/>
+      </form>
+    </main>
+  </body>
+</html>
+
