@@ -6,7 +6,8 @@ app = Flask(__name__)    # Global variable __name__ tells Flask whether or not w
                          # function to the '/' route. This means that whenever we send a request to
                          # localhost:5000/ we will run the following "hello_world" function.
 def hello_world():
-    return 'Hello World!'  # Return the string 'Hello World!' as a response.
+    return render_template('index.html', name="Lex")
+#    return 'Hello World!'  # Return the string 'Hello World!' as a response.
 
 @app.route('/display')
 def display():

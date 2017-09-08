@@ -1,0 +1,15 @@
+body{
+    font-family: Impact, Charcoal, sans-serif;
+    background-color: yellow;
+}
+h1{
+    text-align: center;
+    color: green;
+}
+h2{
+    color: blue;
+}
+input{
+    width: 100%
+}
+

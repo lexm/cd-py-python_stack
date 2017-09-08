@@ -14,7 +14,7 @@ def create_user():
    name = request.form['name']
    email = request.form['email']
    # redirects back to the '/' route
-   # print request.form
-   # return redirect('/')
-   return render_template('success.html')
+   print request.form
+   return redirect('/')
+   # return render_template('success.html')
 app.run(debug=True) # run our server
