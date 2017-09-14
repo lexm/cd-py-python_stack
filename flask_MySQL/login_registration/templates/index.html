@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <title>Registration</title>
+</head>
+<body>
+  {{ session['err'] }}
+  <form action="/register" method="post">
+    <div class="row">
+      <div class="six columns">
+        <label for="fname">First Name:</label>
+        <input class="u-full-width" type="text" name="fname" id="fname">
+      </div>
+      <div class="six columns">
+        <label for="lname">Last Name:</label>
+        <input class="u-full-width" type="text" name="lname" id="lname">
+      </div>
+    </div>
+    <div class="row">
+      <label for="email">Email:</label>
+      <input class="u-full-width" type="text" name="login" id="email">
+    </div>
+    <div>
+      <div class="six columns">
+        <label for="reg-pass">Password:</label>
+        <input class="u-full-width" type="text" name="reg-pass" id="reg-pass">
+      </div>
+      <div class="six columns">
+        <label for="confirm">Confirm Password:</label>
+        <input class="u-full-width" type="text" name="confirm" id="confirm">
+      </div>
+    </div>
+    <input class="button-primary" type="submit" value="Submit">
+  </form>
+  <form action="/login" method="post">
+    <label for="login">Email:</label>
+    <input class="u-full-width" type="text" name="login" id="login">
+    <label for="password">Password:</label>
+    <input class="u-full-width" type="text" name="password" id="password">
+    <input class="button-primary" type="submit" value="Submit">
+  </form>
+</body>
+</html>

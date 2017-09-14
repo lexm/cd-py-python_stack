@@ -1,0 +1,33 @@
+OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'roof'@'localhost' (using password: YES)")
+
+fix: use the correct value for 'username' (e.g., 'root')
+
+OperationalError: (_mysql_exceptions.OperationalError) (1045, "Access denied for user 'root'@'localhost' (using password: YES)")
+
+fix: user correct value for password
+
+OperationalError: (_mysql_exceptions.OperationalError) (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
+
+fix: use correct value for 'port'
+
+Traceback (most recent call last):
+  File "server.py", line 4, in <module>
+    mysql = MySQLConnector(app,'friendsdb')
+  File "/mnt/c/Users/lexmy/Desktop/DojoAssignments/Python/python_stack/flask_MySQL/friends/mysqlconnection.py", line 40, in MySQLConnector
+    return MySQLConnection(app, db)
+  File "/mnt/c/Users/lexmy/Desktop/DojoAssignments/Python/python_stack/flask_MySQL/friends/mysqlconnection.py", line 15, in __init__
+    DATABASE_URI = "mysql://{}:{}@127.0.0.1:{}/{}".format(config['user'], config['password'], config['port'], config['database'])
+KeyError: 'port'
+
+fix: use correct keyname 'port' (not 'fort')
+
+Traceback (most recent call last):
+  File "server.py", line 4, in <module>
+    mysql = MySQLConnector(app,'friendsdb')
+  File "/mnt/c/Users/lexmy/Desktop/DojoAssignments/Python/python_stack/flask_MySQL/friends/mysqlconnection.py", line 40, in MySQLConnector
+    return MySQLConnection(app, db)
+  File "/mnt/c/Users/lexmy/Desktop/DojoAssignments/Python/python_stack/flask_MySQL/friends/mysqlconnection.py", line 9, in __init__
+    'database': xkdb, # we got db as an argument
+NameError: global name 'xkdb' is not defined
+
+fix: use db variable for 'database' key

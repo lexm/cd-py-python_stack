@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Ninja Money</title>
+</head>
+<body>
+  <header class="top row">
+    <p class="two columns">Your Gold:</p>
+    <p class="gold two columns">{{ session['gold'] }}</p>
+  </header>
+  <div class="row">
+    <section class="place three columns">
+      <h2>Farm</h2>
+      <h6>(earns 10-20 golds)</h6>
+      <form action="/process_money" method="POST">
+        <input type="hidden" name="choice" value="farm">
+        <input type="submit" name="play" value="Find Gold!">
+      </form>
+    </section>
+    <section class="place three columns">
+      <h2>Cave</h2>
+      <h6>(earns 5-10 golds)</h6>
+      <form action="/process_money" method="POST">
+        <input type="hidden" name="choice" value="cave">
+        <input type="submit" name="play" value="Find Gold!">
+      </form>
+    </section>
+    <section class="place three columns">
+      <h2>House</h2>
+      <h6>(earns 2-5 golds)</h6>
+      <form action="/process_money" method="POST">
+        <input type="hidden" name="choice" value="house">
+        <input type="submit" name="play" value="Find Gold!">
+      </form>
+    </section>
+    <section class="place three columns">
+      <h2>Casino</h2>
+      <h6>(earns/takes 0-50 golds)</h6>
+      <form action="/process_money" method="POST">
+        <input type="hidden" name="choice" value="casino">
+        <input type="submit" name="play" value="Find Gold!">
+      </form>
+    </section>
+  </div>
+  <footer class="row">
+    <div class="one column"></div>
+    <div class="scrollbox ten columns">
+      {% for record in session['record'] %}
+      {% if record.change >= 0 %}
+        <p class="green">Earned {{ record.change }} golds from the {{record.choice}}! ({{record.time}})</p>
+      {% else %}
+        <p class="red">Entered a casino and lost {{ -record.change }} golds... Ouch... ({{record.time}})</p>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+  </footer>
+</body>
+</html>

@@ -1,0 +1,75 @@
+Naming conventions:
+
+Tables: plural, lowercase
+IDs: integers
+include create and update date/time
+Foreign keys: lowercase with _id suffix
+
+Blog assign:
+
+users create (many) blogs
+blogs have (many) co-admins
+blogs have names, posts, files
+posts have comments
+(analytics categories)
+
+users:
+int id
+varchar(45) username
+varchar(255) password
+varchar(255) email
+DATETIME created_at
+DATETIME updated_at
+
+posts:
+int id
+text content
+varchar(50) title
+int user_id
+int blog_id
+DATETIME created_at
+DATETIME updated_at
+
+blogs:
+int id
+DATETIME created_at
+DATETIME updated_at
+varchar(50) name
+
+comments:
+int id
+DATETIME created_at
+DATETIME updated_at
+int user_id
+int post_id
+text content
+
+files:
+int id
+DATETIME created_at
+DATETIME updated_at
+varchar(255) address
+int post_id
+
+admins:
+int id
+DATETIME created_at
+DATETIME updated_atint id
+int user_id
+int blog_id
+
+views:
+int id
+int blog_id
+DATETIME created_at
+DATETIME updated_at
+DATETIME started_at
+DATETIME ended_at
+int visitor_id
+
+visitors:
+int id
+DATETIME created_at
+DATETIME updated_at
+varchar(15) address
+int count

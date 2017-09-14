@@ -1,0 +1,22 @@
+body{
+  font-family: Verdana, Geneva, sans-serif;
+  text-align: center;
+}
+.red{
+  background-color: red;
+  width: 80%;
+  border: 2px solid black;
+  margin: auto;
+}
+.green{
+  background-color: green;
+  width: 80%;
+  border: 2px solid black;
+  margin: auto;
+}
+.hidden{
+  display: none;
+}
+form{
+  margin-top: 20px;
+}

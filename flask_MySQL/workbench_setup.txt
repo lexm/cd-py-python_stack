@@ -1,0 +1,15 @@
+SELECT * from users
+JOIN tweets on tweets.user_id = users.id;
+
+SELECT users.first_name, users.last_name, followers.first_name as follower_fname, followers.last_name as follower_lname FROM users
+JOIN follows ON follows.follower_id = users.id
+JOIN users as followers ON follows.followed_id = followers.id;
+
+SELECT CONCAT_WS(' ',users.first_name, users.last_name) as name, users.handle, tweets.tweet from tweets
+JOIN faves ON faves.tweet_id = tweets.id
+JOIN users ON users.id = faves.user_id
+WHERE CONCAT_WS(' ',users.first_name, users.last_name) = "Kobe Bryant";
+
+SELECT first_name, last_name, handle, users.birthday, tweets.tweet from users
+JOIN tweets on tweets.user_id = users.id
+WHERE users.birthday > '1976-01-01'

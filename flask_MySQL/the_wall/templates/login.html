@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
+  <title>The Wall - Login</title>
+</head>
+<body>
+  <header class="row">
+    <h3 class="six columns">CodingDojo Wall</h3>
+    <h5 class="six columns">Please login or register!</h5>
+  </header>
+  {% if session['err'] == 'name' %}
+    <p>Both first and last names need to be at least 2 characters, all letters</p>
+  {% elif session['err'] == 'email'%}
+    <p>Needs valid email address</p>
+  {% elif session['err'] == 'pass_len'%}
+    <p>Password needs to be at least 8 characters</p>
+  {% elif session['err'] == 'pass_match'%}
+    <p>Passwords need to match</p>
+  {% elif session['err'] == 'login'%}
+    <p>Login or password incorrect</p>
+  {% endif %}
+  {% if session['login'] %}
+    <form action="/login" method="post">
+      <label for="login">Email:</label>
+      <input class="u-full-width" type="text" name="login" id="login">
+      <label for="password">Password:</label>
+      <input class="u-full-width" type="text" name="password" id="password">
+      <input class="button-primary" type="submit" value="Submit">
+    </form>
+    <form action="/switch">
+      <input type="submit" name="" value="Registration Page">
+    </form>
+  {% else %}
+    <form action="/register" method="post">
+      <div class="row">
+        <div class="six columns">
+          <label for="fname">First Name:</label>
+          <input class="u-full-width" type="text" name="fname" id="fname">
+        </div>
+        <div class="six columns">
+          <label for="lname">Last Name:</label>
+          <input class="u-full-width" type="text" name="lname" id="lname">
+        </div>
+      </div>
+      <div class="row">
+        <label for="email">Email:</label>
+        <input class="u-full-width" type="text" name="email" id="email">
+      </div>
+      <div>
+        <div class="six columns">
+          <label for="newpass">Password:</label>
+          <input class="u-full-width" type="text" name="newpass" id="newpass">
+        </div>
+        <div class="six columns">
+          <label for="confirm">Confirm Password:</label>
+          <input class="u-full-width" type="text" name="confirm" id="confirm">
+        </div>
+      </div>
+      <input class="button-primary" type="submit" value="Submit">
+    </form>
+    <form action="/switch">
+      <input type="submit" name="" value="Login Page">
+    </form>
+  {% endif %}
+</body>
+</html>
